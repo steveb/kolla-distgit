@@ -1,7 +1,8 @@
+%{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 Name:       openstack-kolla
 Version:    XXX
 Release:    XXX
-Summary:    Refresh system configuration
+Summary:    Build OpenStack container images
 
 License:    ASL 2.0
 URL:        http://pypi.python.org/pypi/kolla
@@ -29,10 +30,10 @@ Templates and tools from the Kolla project to build OpenStack container images.
 %setup -q -n kolla-%{upstream_version}
 
 %build
-%{__python} setup.py build
+%{__python2} setup.py build
 
 %install
-%{__python} setup.py install -O1 --skip-build --root %{buildroot}
+%{__python2} setup.py install -O1 --skip-build --root %{buildroot}
 
 mkdir -p %{buildroot}%{_datadir}/kolla/docker
 cp -vr docker/ %{buildroot}%{_datadir}/kolla
@@ -50,8 +51,7 @@ rm -fr %{buildroot}%{_datadir}/kolla/tools
 %doc README.rst
 %doc LICENSE
 %doc %{_datadir}/kolla/doc
-%doc %{_datadir}/kolla/etc_examples
-%doc %{_datadir}/kolla/openrc-example
+%{_datadir}/kolla/openrc-example
 %{_bindir}/kolla-build
 %{_bindir}/kolla-genpwd
 %{python_sitelib}/kolla*
