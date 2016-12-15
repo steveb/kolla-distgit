@@ -47,6 +47,10 @@ rm -fr %{buildroot}%{python_sitelib}/kolla/tests
 # remove tools
 rm -fr %{buildroot}%{_datadir}/kolla/tools
 
+install -d -m 755 %{buildroot}%{_sysconfdir}/kolla
+cp -vr %{buildroot}%{_datadir}/kolla/etc_examples/kolla %{buildroot}%{_sysconfdir}/kolla
+rm -fr %{buildroot}%{_datadir}/kolla/etc_examples
+
 %files
 %doc README.rst
 %doc LICENSE
@@ -57,5 +61,6 @@ rm -fr %{buildroot}%{_datadir}/kolla/tools
 %{python_sitelib}/kolla*
 %{_datadir}/kolla/docker
 %{_datadir}/kolla/setup.cfg
+%{_sysconfdir}/kolla/*
 
 %changelog
