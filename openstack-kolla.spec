@@ -48,7 +48,7 @@ rm -fr %{buildroot}%{python_sitelib}/kolla/tests
 rm -fr %{buildroot}%{_datadir}/kolla/tools
 
 install -d -m 755 %{buildroot}%{_sysconfdir}/kolla
-cp -vr %{buildroot}%{_datadir}/kolla/etc_examples/kolla %{buildroot}%{_sysconfdir}/kolla
+cp -vr %{buildroot}%{_datadir}/kolla/etc_examples/kolla %{buildroot}%{_sysconfdir}
 rm -fr %{buildroot}%{_datadir}/kolla/etc_examples
 
 %files
