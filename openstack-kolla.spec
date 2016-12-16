@@ -53,8 +53,8 @@ rm -fr %{buildroot}%{_datadir}/kolla/etc_examples
 
 %files
 %doc README.rst
-%doc LICENSE
 %doc %{_datadir}/kolla/doc
+%license LICENSE
 %{_datadir}/kolla/openrc-example
 %{_bindir}/kolla-build
 %{_bindir}/kolla-genpwd
